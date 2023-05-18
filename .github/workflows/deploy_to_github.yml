@@ -28,7 +28,6 @@ jobs:
         with:
           node-version: 19
           registry-url: https://npm.pkg.github.com/
-      - run: npm unpublish 'dataverse-client-javascript@${{ github.event.number }}.0.0'
       - run: npm version '${{ github.event.number }}.${{ github.run_number }}.0' --no-git-tag-version
       - run: npm ci
       - run: |
