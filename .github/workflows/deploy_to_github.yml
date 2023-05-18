@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 19
           registry-url: https://npm.pkg.github.com/
-      - run: npm version ${ PR_NUMBER }.0.0 --no-git-tag-version
+      - run: npm version '${ PR_NUMBER }.0.0' --no-git-tag-version
       - run: npm ci
       - run: |
           echo @GPortas:https://npm.pkg.github.com/ >> .npmrc
