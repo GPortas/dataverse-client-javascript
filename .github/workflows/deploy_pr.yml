@@ -1,4 +1,4 @@
-name: deploy_to_github
+name: deploy_pr
 
 on:
   pull_request:
@@ -33,6 +33,6 @@ jobs:
       - run: |
           echo @GPortas:registry=https://npm.pkg.github.com >> .npmrc
           echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> .npmrc
-      - run: npm publish
+      - run: npm publish --tag '${{ github.event.number }}.${{ github.run_number }}.0'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
