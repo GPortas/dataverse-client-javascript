@@ -28,11 +28,12 @@ jobs:
         with:
           node-version: 19
           registry-url: https://npm.pkg.github.com/
+      - run: npm unpublish 'dataverse-client-javascript@${{ github.event.number }}.0.0'
       - run: npm version '${{ github.event.number }}.0.0' --no-git-tag-version
       - run: npm ci
       - run: |
           echo @GPortas:registry=https://npm.pkg.github.com >> .npmrc
           echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> .npmrc
-      - run: npm publish
+      - run: npm publish --tag '${{ github.event.number }}.0.0'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
