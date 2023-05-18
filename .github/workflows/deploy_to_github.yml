@@ -7,23 +7,32 @@ on:
       - develop
 
 jobs:
-  install-and-test:
+    build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 19
-      - run: npm install
+      - run: npm ci
       - run: npm test
-  publish-package:
+
+  publish-gpr:
+    needs: build
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 19
           registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: |
+          echo "@GPortas:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
       - run: npm publish
         env:
-          NPM_CONFIG_TOKEN: ${{ github.token }}
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
