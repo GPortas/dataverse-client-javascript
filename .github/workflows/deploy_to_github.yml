@@ -30,8 +30,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: |
-          echo "@GPortas:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${ NPM_TOKEN }" >> .npmrc
+          echo @GPortas:https://npm.pkg.github.com/ >> .npmrc
+          echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> .npmrc
       - run: npm publish
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
