@@ -31,8 +31,8 @@ jobs:
       - run: npm version '${{ github.event.number }}.0.0' --no-git-tag-version
       - run: npm ci
       - run: |
-          echo @GPortas:https://npm.pkg.github.com/ >> .npmrc
-          echo '//npm.pkg.github.com/:_authToken=${ NPM_TOKEN }' >> .npmrc
+          echo @GPortas:registry=https://npm.pkg.github.com >> .npmrc
+          echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> .npmrc
       - run: npm publish
         env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
