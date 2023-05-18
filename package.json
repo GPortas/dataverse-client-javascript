@@ -1,5 +1,5 @@
 {
-  "name": "GPortas/dataverse-client-javascript",
+  "name": "@gportas/dataverse-client-javascript",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GPortas/dataverse-client-javascript.git"
