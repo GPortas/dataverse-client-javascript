@@ -1,5 +1,12 @@
 {
-  "name": "js-dataverse",
+  "name": "GPortas/dataverse-client-javascript",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GPortas/dataverse-client-javascript.git"
+  },
+  "publishConfig": {
+    "@GPortas:registry": "https://npm.pkg.github.com"
+  },
   "version": "2.0.0",
   "description": "Dataverse API wrapper package for JavaScript/TypeScript-based applications",
   "main": "./dist/index.js",
@@ -17,10 +24,6 @@
     "format": "prettier --write \"src/**/*.(js|ts)\"",
     "lint": "eslint src --ext .js,.ts",
     "lint:fix": "eslint src --fix --ext .js,.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IQSS/dataverse-client-javascript.git"
   },
   "keywords": [
     "dataverse"
