@@ -1,12 +1,5 @@
 {
-  "name": "@gportas/dataverse-client-javascript",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GPortas/dataverse-client-javascript.git"
-  },
-  "publishConfig": {
-    "@GPortas:registry": "https://npm.pkg.github.com"
-  },
+  "name": "js-dataverse",
   "version": "2.0.0",
   "description": "Dataverse API wrapper package for JavaScript/TypeScript-based applications",
   "main": "./dist/index.js",
@@ -14,9 +7,12 @@
   "files": [
     "/dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IQSS/dataverse-client-javascript.git"
+  },
   "scripts": {
     "build": "tsc",
-    "publish": "tsc && npm publish",
     "test": "jest -c jest.config.js",
     "test:unit": "jest -c jest.config.unit.js",
     "test:integration": "jest -c jest.config.integration.js",
