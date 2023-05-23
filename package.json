@@ -1,13 +1,6 @@
 {
-  "name": "@gportas/dataverse-client-javascript",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GPortas/dataverse-client-javascript.git"
-  },
-  "publishConfig": {
-    "@GPortas:registry": "https://npm.pkg.github.com"
-  },
-  "version": "7.2.0",
+  "name": "js-dataverse",
+  "version": "2.0.0",
   "description": "Dataverse API wrapper package for JavaScript/TypeScript-based applications",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
