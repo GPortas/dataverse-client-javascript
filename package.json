@@ -7,6 +7,10 @@
   "files": [
     "/dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IQSS/dataverse-client-javascript.git"
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest -c jest.config.js",
