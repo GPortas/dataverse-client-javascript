@@ -41,7 +41,7 @@ jobs:
 
       - name: Update package version
         run: |      
-          SHORT_SHA=$(echo "SHORT_SHA=$(echo "$GITHUB_SHA" | cut -c -8)" >> "$GITHUB_ENV")
+          SHORT_SHA=$(echo "$GITHUB_SHA" | cut -c -8)
           CURRENT_PACKAGE_VERSION=$(cat package.json | jq -r '.version')
           npm version "${CURRENT_PACKAGE_VERSION}-pr${{ github.event.number }}.${SHORT_SHA}" --no-git-tag-version
 
