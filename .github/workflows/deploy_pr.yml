@@ -40,7 +40,7 @@ jobs:
         run: npm run build
 
       - name: Update package version
-        run: npm version '${{ github.event.number }}.${{ github.run_number }}.0' --no-git-tag-version
+        run: npm version '1.0.0-49.3.0' --no-git-tag-version
 
       - name: Publish package
         run: |
