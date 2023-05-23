@@ -24,24 +24,20 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       packages: write
-    runs-on: ubuntu-latest
+      contents: read
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 19
-          registry-url: 'https://npm.pkg.github.com'
-          cache: npm
-      
-      - name: Install npm dependencies
-        run: npm ci
-      
-      - name: Publish to github registry
-        run: |
-          echo "$(jq '.publishConfig.registry = "https://npm.pkg.github.com"' package.json)" > package.json
-          echo "$( jq '.name = "@gportas/dataverse-client-javascript"' package.json )" > package.json
-          npm publish --@gportas:registry=https://npm.pkg.github.com
+          registry-url: https://npm.pkg.github.com/
+      - run: npm version '${ PR_NUMBER }.0.0' --no-git-tag-version
+      - run: npm ci
+      - run: |
+          echo @GPortas:https://npm.pkg.github.com/ >> .npmrc
+          echo '//npm.pkg.github.com/:_authToken=${ NPM_TOKEN }' >> .npmrc
+      - run: npm publish --tag ${{ github.head_ref }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
