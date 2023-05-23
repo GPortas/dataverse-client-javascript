@@ -39,7 +39,7 @@ jobs:
       - name: Build package
         run: npm run build
 
-        - name: Set the value
+      - name: Set the value
         id: step_one
         run: |
             echo "FOO=$(git status)" >> $GITHUB_ENV
