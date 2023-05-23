@@ -30,7 +30,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
       - run: npm version '${{ github.event.number }}.${{ github.run_number }}.0' --no-git-tag-version
-      - run: npm build
+      - run: npm run build
       - run: |
           echo @GPortas:registry=https://npm.pkg.github.com >> .npmrc
           echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> .npmrc
