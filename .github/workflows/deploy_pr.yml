@@ -35,6 +35,8 @@ jobs:
           echo @GPortas:registry=https://npm.pkg.github.com >> .npmrc
           echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> .npmrc
       - run: npm view
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm publish --tag 'PR-${{ github.event.number }}-${{ github.run_number }}'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
