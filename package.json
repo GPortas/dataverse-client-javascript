@@ -7,7 +7,7 @@
   "publishConfig": {
     "@GPortas:registry": "https://npm.pkg.github.com"
   },
-  "version": "1.2.3",
+  "version": "5.0.0",
   "description": "Dataverse API wrapper package for JavaScript/TypeScript-based applications",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
